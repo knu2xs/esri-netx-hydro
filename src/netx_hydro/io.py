@@ -101,11 +101,10 @@ def read_fgdb_fc(path, simplify=True, geom_attrs=True, strict=True):
 
             # if neither one of these, this ain't gonna work
             else:
-                raise Exception(f'Geometry type {geom_type} is not a supported geometry for a NetX Graph.')
+                if strict:
+                    raise Exception(f'Geometry type {geom_type} is not a supported geometry for a NetX Graph.')
 
-            
-
-    return
+    return net
 
 
 def edges_from_esri_paths(paths, attrs, simplify=True, geom_attrs=True):
